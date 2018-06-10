@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:include="layout/header"></th:block>
+
+<div class="col-md-4">
+    <h1>Courses</h1>
+</div>
+
+<div style="padding:0 20px">
+    <table class="table table-striped">
+        <tr>
+            <th>Coursename</th>
+            <th>Instructor</th>
+            <th>Enrolled Students</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Actions</th>
+        </tr>
+
+        <tr th:each = "course : ${courses}">
+            <td th:text="${course.name}"></td>
+            <td th:text="${course.instructor}"></td>
+            <td>
+				<span th:each="student,iterStat : ${course.students}">
+					<span th:text="${student.firstName} + ' ' + ${student.lastName}"/>
+				</span>
+            </td>
+            <td th:text="${course.startDate}"></td>
+            <td th:text="${course.endDate}"></td>
+            <td>
+                <a th:href="@{/edit/course/{id}(id=${course.courseid})}" class="btn btn-primary btn-xs">Edit</a>
+                <a th:href="@{/delete/{id}(id=${course.courseid})}" class="btn btn-danger btn-xs">Delete</a>
+            </td>
+        </tr>
+    </table>
+    <a href="/course/add" class="btn btn-success">Add Course</a>
+</div>
+</body>
+</html>
