@@ -50,7 +50,7 @@ public class studentController {
     }
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
-    public String editRemoveEmployee(@PathVariable("id") Long studentId, Model model)
+    public String deleteStudent(@PathVariable("id") Long studentId, Model model)
     {
         studentService.delete(studentId);
         return "redirect:/students";
@@ -88,9 +88,9 @@ public class studentController {
         return (List<Student>)studentService.getAll();
     }
 
-    /*show a single Student*/
+    /*edit a single Student*/
     @GetMapping("/edit/student/{id}")
-    public String getNoteById(@PathVariable(value = "id") Long studentId, Model model) {
+    public String editStudent(@PathVariable(value = "id") Long studentId, Model model) {
         Student student = studentService.findById(studentId);
         model.addAttribute("student", student);
         return "students/editStudent";

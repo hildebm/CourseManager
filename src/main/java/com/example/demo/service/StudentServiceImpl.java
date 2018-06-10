@@ -50,6 +50,18 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public void delete(Long id){
+        //remove Student from all Courses
+        Optional<Student> studentOptional = studentRepository.findById(id);
+        Student student = studentOptional.get();
+        Set<Course> courses = student.getCourses();
+
+        for (Course course : courses)
+        {
+            course.removeStudent(student);
+            courseRepository.save(course);
+        }
+
+        //deleteStudent
         studentRepository.deleteById(id);
     }
 

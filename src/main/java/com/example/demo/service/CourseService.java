@@ -11,12 +11,11 @@ public interface CourseService {
 
     List<Course> getAll();
 
-
     Course findById(Long id);
- /*
-    void update(Long id, Note note);
 
-    void delete(Long id);*/
+    void update(Long id, Course course);
+
+    void delete(Long id);
 
     Long create(Course course);
 }

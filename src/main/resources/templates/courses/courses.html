@@ -30,7 +30,7 @@
             <td th:text="${course.endDate}"></td>
             <td>
                 <a th:href="@{/edit/course/{id}(id=${course.courseid})}" class="btn btn-primary btn-xs">Edit</a>
-                <a th:href="@{/delete/{id}(id=${course.courseid})}" class="btn btn-danger btn-xs">Delete</a>
+                <a th:href="@{/course/delete/{id}(id=${course.courseid})}" class="btn btn-danger btn-xs">Delete</a>
             </td>
         </tr>
     </table>

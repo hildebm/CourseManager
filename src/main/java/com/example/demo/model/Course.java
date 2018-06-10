@@ -19,6 +19,13 @@ public class Course {
     private Date endDate;
     private String instructor;
 
+    @ManyToMany(mappedBy = "courses")
+    private Set<Student> students;
+
+    /*
+    @ManyToMany(mappedBy = "courses")
+    private Set<Instructor> instructor;
+*/
     public Course() {
     }
 
@@ -46,9 +53,6 @@ public class Course {
     public void setName(String name) {
         this.name = name;
     }
-
-    @ManyToMany(mappedBy = "courses")
-    private Set<Student> students;
 
     public Set<Student> getStudents() {
         return students;

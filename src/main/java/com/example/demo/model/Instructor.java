@@ -1,35 +1,34 @@
 package com.example.demo.model;
 
-
-import java.util.HashSet;
-import java.util.Set;
-import javax.persistence.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
-public class Student {
+public class Instructor {
     private long id;
     private String firstName;
     private String lastName;
-    private String department;
     private String email;
     private Set<Course> courses = new HashSet<Course>(0);
+
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
-    public Student() {
-    }
+    public Instructor(){}
 
-    public Student(String firstName, String lastName, String department, String email) {
-        super();
+    public Instructor(long id, String firstName, String lastName, String email, Set<Course> courses) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.department = department;
         this.email = email;
+        this.courses = courses;
     }
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.AUTO)
     public long getId() {
         return id;
     }
@@ -56,15 +55,6 @@ public class Student {
         this.lastName = lastName;
     }
 
-    @Column(name = "department")
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
     @Column(name = "email")
     public String getEmail() {
         return email;
@@ -77,7 +67,7 @@ public class Student {
     @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(name = "student_course", joinColumns = { @JoinColumn(name = "id") }, inverseJoinColumns = { @JoinColumn(name = "courseid") })
     public Set<Course> getCourses() {
-        return this.courses;
+        return courses;
     }
 
     public void setCourses(Set<Course> courses) {
@@ -85,8 +75,8 @@ public class Student {
     }
 
     public boolean hasCourse(Course course) {
-        for (Course studentCourse: getCourses()) {
-            if (studentCourse.getCourseid() == course.getCourseid()) {
+        for (Course instructorCourse: getCourses()) {
+            if (instructorCourse.getCourseid() == course.getCourseid()) {
                 return true;
             }
         }
