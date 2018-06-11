@@ -27,6 +27,7 @@ public class StudentController {
         return "login";
     }*/
 
+    /* Index page for Students -> shows all DB entries from Table "students"*/
     @RequestMapping("/students")
     public String index(Model model)
     {
@@ -35,6 +36,8 @@ public class StudentController {
         return "students/students";
     }
 
+    /*When hitting Button "add new Student"
+    -> this route leads to template "addStudent.html" with Form for new Student*/
     @RequestMapping(value = "add")
     public String addStudent(Model model)
     {
@@ -42,6 +45,10 @@ public class StudentController {
         return "students/addStudent";
     }
 
+    /*Completed Form for "new Student" in Template "addStudent.html"
+    -> when hitting Button "save" leads here
+    StudentService will create new Entry in Database
+     */
     @RequestMapping(value = "save", method = RequestMethod.POST)
     public String save(Student student)
     {
@@ -49,6 +56,8 @@ public class StudentController {
         return "redirect:/students";
     }
 
+    /*Delete*/
+    /*When Deleting student-> deletes Student from all enrolled Courses, too*/
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     public String deleteStudent(@PathVariable("id") Long studentId, Model model)
     {
@@ -56,6 +65,8 @@ public class StudentController {
         return "redirect:/students";
     }
 
+    /*leads to Template where user can add a course to a student's courseList*/
+    /*{id} = studentId*/
     @RequestMapping(value = "addStudentCourse/{id}", method = RequestMethod.GET)
     public String addCourse(@PathVariable("id") Long studentId, Model model){
         model.addAttribute("courses", courseService.getAll());
@@ -63,6 +74,7 @@ public class StudentController {
         return "students/addStudentCourse";
     }
 
+    /*adds selected course with {id} = courseId to student's CourseList*/
     @RequestMapping(value="/student/{id}/courses", method=RequestMethod.GET)
     public String studentsAddCourse(@PathVariable Long id, @RequestParam Long courseId, Model model) {
         Course course = courseService.findById(courseId);
@@ -82,8 +94,7 @@ public class StudentController {
     }
 
     @RequestMapping(value = "getstudents", method = RequestMethod.GET)
-    public @ResponseBody
-    List<Student> getStudents()
+    public @ResponseBody List<Student> getStudents()
     {
         return (List<Student>)studentService.getAll();
     }
@@ -105,6 +116,7 @@ public class StudentController {
     }
 
     /*Remove a course from template:editStudent*/
+    /*automatically removes Student from course's List, too*/
     @RequestMapping(path = "/student/{studentId}/removeCourse/{courseId}", method = RequestMethod.GET)
     public String removeCourse(@PathVariable(value = "studentId") long studentId,
                          @PathVariable(value = "courseId") long courseId,
