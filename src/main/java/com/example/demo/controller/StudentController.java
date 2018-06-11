@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-public class studentController {
+public class StudentController {
 
     @Autowired
     private StudentService studentService;

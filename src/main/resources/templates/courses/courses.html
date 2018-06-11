@@ -20,7 +20,11 @@
 
         <tr th:each = "course : ${courses}">
             <td th:text="${course.name}"></td>
-            <td th:text="${course.instructor}"></td>
+            <td>
+				<span th:each="instructor,iterStat : ${course.instructors}">
+					<span th:text="${instructor.firstName} + ' ' + ${instructor.lastName}"/>
+				</span>
+            </td>
             <td>
 				<span th:each="student,iterStat : ${course.students}">
 					<span th:text="${student.firstName} + ' ' + ${student.lastName}"/>
@@ -34,7 +38,7 @@
             </td>
         </tr>
     </table>
-    <a href="/course/add" class="btn btn-success">Add Course</a>
+    <a href="/course/add" class="btn btn-success">New Course</a>
 </div>
 </body>
 </html>

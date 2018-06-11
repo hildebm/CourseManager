@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.List;
 
 @Controller
-public class courseController {
+public class CourseController {
     @Autowired
     private CourseService courseService;
 
@@ -61,5 +61,27 @@ public class courseController {
     {
         courseService.delete(courseId);
         return "redirect:/courses";
+    }
+
+    @RequestMapping(path = "/course/{courseId}/removeInstructor/{instructorId}", method = RequestMethod.GET)
+    public String removeInstructor(@PathVariable(value = "courseId") long courseId,
+                                   @PathVariable(value = "instructorId") long instructorId,
+                                   Model model)
+    {
+        //removes Course with id=courseId from the instructors's courseList
+        courseService.removeInstructor(instructorId, courseId);
+
+        return "redirect:/edit/course/" + courseId;
+    }
+
+    @RequestMapping(path = "/course/{courseId}/removeStudent/{studentId}", method = RequestMethod.GET)
+    public String removeStudentFromCourse(@PathVariable(value = "courseId") long courseId,
+                                   @PathVariable(value = "studentId") long studentId,
+                                   Model model)
+    {
+        //removes Course with id=courseId from the instructors's courseList
+        courseService.removeStudent(studentId, courseId);
+
+        return "redirect:/edit/course/" + courseId;
     }
 }

@@ -20,8 +20,13 @@
                     <input type="text" class="form-control" id="name" th:field="*{name}">
                 </div>
                 <div class="form-group">
-                    <label for="instructor">Instructor</label>
-                    <input type="text" class="form-control" id="instructor" th:field="*{instructor}">
+                    <label for="instructors">Instructors: </label>
+                    <span id="instructors" th:each="instructor : ${course.instructors}">
+                        <a th:href="@{'/course/' + ${course.courseid} + '/removeInstructor/' + ${instructor.id}}" type="button" class="btn btn-light">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                        <span th:text="${instructor.firstName} + ' ' + ${instructor.lastName}" />
+				    </span>
                 </div>
                 <!--<div class="form-group">
                     <label for="startDate">Start Date</label>

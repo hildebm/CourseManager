@@ -73,7 +73,9 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-        //removes Course with id=courseId from the student's courseList
+        //removes Course with id=courseId
+        //from the student's courseList
+
     public void removeCourse(Long studentId, Long courseId){
 
         //betreffenden studenten rausfiltern
@@ -82,7 +84,7 @@ public class StudentServiceImpl implements StudentService {
             throw new RuntimeException("Student Not Found!");
         }
 
-        //betreffenden studenten rausfiltern
+        //betreffenden Kurs rausfiltern
         Optional<Course> courseOptional = courseRepository.findById(courseId);
         if (!courseOptional.isPresent()) {
             throw new RuntimeException("Student Not Found!");

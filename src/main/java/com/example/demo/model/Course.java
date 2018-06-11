@@ -17,15 +17,15 @@ public class Course {
 
     private Date startDate;
     private Date endDate;
-    private String instructor;
+    //private String instructor;
 
     @ManyToMany(mappedBy = "courses")
     private Set<Student> students;
 
-    /*
+
     @ManyToMany(mappedBy = "courses")
-    private Set<Instructor> instructor;
-*/
+    private Set<Instructor> instructors;
+
     public Course() {
     }
 
@@ -34,12 +34,12 @@ public class Course {
         this.name = name;
     }
 
-    public Course(String name, Date startDate, Date endDate, String instructor, Set<Student> students) {
+    public Course(String name, Date startDate, Date endDate, Set<Student> students, Set<Instructor> instructors) {
         this.name = name;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.instructor = instructor;
         this.students = students;
+        this.instructors = instructors;
     }
 
     public long getCourseid() {
@@ -71,11 +71,13 @@ public class Course {
         return false;
     }
 
-    public void removeStudent(Student student)
-    {
-        if(hasStudent(student)){
-            this.students.remove(student);
+    public boolean hasInstructor(Instructor instructor){
+        for(Instructor InstructorOfCourse: getInstructors()){
+            if(InstructorOfCourse.getId() == instructor.getId()){
+                return true;
+            }
         }
+        return false;
     }
 
     public Date getStartDate() {
@@ -94,12 +96,28 @@ public class Course {
         this.endDate = endDate;
     }
 
-
-    public String getInstructor() {
-        return instructor;
+    public void setCourseid(long courseid) {
+        this.courseid = courseid;
     }
 
-    public void setInstructor(String instructor) {
-        this.instructor = instructor;
+    public Set<Instructor> getInstructors() {
+        return instructors;
+    }
+
+    public void setInstructor(Set<Instructor> instructors) {
+        this.instructors = instructors;
+    }
+
+    public void removeStudent(Student student)
+    {
+        if(hasStudent(student)){
+            this.students.remove(student);
+        }
+    }
+
+    public void removeInstructor(Instructor instructor){
+        if(hasInstructor(instructor)){
+            this.instructors.remove(instructor);
+        }
     }
 }

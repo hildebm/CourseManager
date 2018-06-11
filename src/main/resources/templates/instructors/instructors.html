@@ -1,10 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html xmlns:th="http://www.thymeleaf.org">
 
+<th:block th:include="layout/header"></th:block>
+
+<div class="col-md-4">
+    <h1>Instructors</h1>
+</div>
+
+<div style="padding:0 20px">
+    <table class="table table-striped">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Courses</th>
+            <th>Actions</th>
+        </tr>
+        <tr th:each = "instructor : ${instructors}">
+            <td th:text="${instructor.firstName} + ' ' + ${instructor.lastName}"></td>
+            <td th:text="${instructor.email}"></td>
+            <td>
+				<span th:each="course,iterStat : ${instructor.courses}">
+					<span th:text="${course.name}"/><th:block th:if="${!iterStat.last}">,</th:block>
+				</span>
+            </td>
+            <td>
+                <a th:href="@{/addInstructorForCourse/{id}(id=${instructor.id})}" class="btn btn-success btn-xs">Add Course</a>
+                <a th:href="@{/edit/instructor/{id}(id=${instructor.id})}" class="btn btn-primary btn-xs">Edit</a>
+                <a th:href="@{/delete/instructor/{id}(id=${instructor.id})}" class="btn btn-danger btn-xs">Delete</a>
+            </td>
+        </tr>
+    </table>
+    <a href="/instructor/add" class="btn btn-success">Create New Instructor</a>
+</div>
 </body>
 </html>

@@ -18,4 +18,8 @@ public interface CourseService {
     void delete(Long id);
 
     Long create(Course course);
+
+    void removeInstructor(Long instructorId, Long courseId);
+
+    void removeStudent(Long studentId, Long courseId);
 }
