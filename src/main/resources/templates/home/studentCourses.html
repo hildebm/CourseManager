@@ -1,0 +1,68 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:include="pageLayout/profileHeader"></th:block>
+
+
+<div class="container" style="margin-top:40px;">
+    <div class="row">
+        <div class="col-sm-3"><!--left col-->
+
+            <div class="text-center">
+                <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar rounded-circle img-thumbnail" alt="avatar">
+            </div></hr><br>
+
+            <div class="text-center">
+                <p>First Name</p>
+                <p>Last Name</p>
+                <p>City</p>
+            </div>
+
+        </div><!--/col-3-->
+        <div class="col-sm-9">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-11">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="card" style="width: 22rem; margin-top:20px;">
+                                        <img class="card-img-top" th:src="@{/img/download.svg}" alt="Card image cap">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            <a th:href="@{/course/content}" class="btn btn-primary">Learn More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="card" style="width: 22rem; margin-top:20px;">
+                                        <img class="card-img-top" th:src="@{/img/download.svg}" alt="Card image cap">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            <a th:href="@{/course/content}" class="btn btn-primary">Learn More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="card" style="width: 22rem; margin-top:20px;">
+                                        <img class="card-img-top" th:src="@{/img/download.svg}" alt="Card image cap">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            <a th:href="@{/course/content}" class="btn btn-primary">Learn More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-1"></div>
+                </div>
+            </div>
+        </div>
+
+    </div><!--/col-9-->
+</div><!--/row-->
+
+<th:block th:include="pageLayout/footer"></th:block>

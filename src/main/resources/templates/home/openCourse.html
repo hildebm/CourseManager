@@ -1,0 +1,117 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:include="pageLayout/profileHeader"></th:block>
+
+<div class="container" style="margin-top:40px;">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <h3>Create a new Course</h3>
+            </hr><br>
+            <form class="form" action="##" method="post" id="registrationForm">
+                <div class="form-group">
+                    <img class="img-fluid rounded" src="http://placehold.it/900x400" alt="">
+                    </hr><br>
+                    <input type="file" class="text-center center-block file-upload">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-sm-6">
+                        <label for="first_name"><h6>First Name:</h6></label>
+                        <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any." readonly>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="last_name"><h6>Last Name:</h6></label>
+                        <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any." readonly>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-sm-4">
+                        <label for="mobile"><h6>Phone:</h6></label>
+                        <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any." readonly>
+                    </div>
+                    <div class="form-group col-sm-8">
+                        <label for="email"><h6>Email:</h6></label>
+                        <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email." readonly>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="courseTitle"><h6>Course Title:</h6></label>
+                    <input type="text" class="form-control" id="courseTitle" placeholder="Spring MVC for Beginners">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputText"><h6>Description:</h6></label>
+                    <textarea  class="form-control" id="exampleInputText" placeholder="Description"></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-sm-6">
+                        <label for="price"><h6>Course Price:</h6></label>
+                        <input type="number" class="form-control" id="price" placeholder="15">
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="maxPart"><h6>Max. Number of Participants:</h6></label>
+                        <input type="number" class="form-control" id="maxPart" placeholder="20">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputAddress"><h6>Address:</h6></label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-sm-6">
+                        <label for="inputCity"><h6>City:</h6></label>
+                        <input type="text" class="form-control" id="inputCity" placeholder="City">
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="inputState"><h6>State:</h6></label>
+                        <select id="inputState" class="form-control">
+                            <option selected>Choose...</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-2">
+                        <label for="inputZip"><h6>Zip:</h6></label>
+                        <input type="text" class="form-control" id="inputZip" placeholder="00000">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <!--
+                    <div class="form-group col-sm-4">
+                        <label for="Date" class="form-control-label">Date</label>
+                        <input type="date" class="form-control" th:field="*{date}" id="date" />
+                        <div class="text text-danger" th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="startTime" class="form-control-label">StartTime</label>
+                        <input type="time" class="form-control" th:field="*{startTime}" id="startTime" />
+                        <div class="text text-danger" th:if="${#fields.hasErrors('startTime')}" th:errors="*{startTime}"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="stopTime" class="form-control-label">Stop Time</label> <input type="time" class="form-control" th:field="*{stopTime}" id="stopTime" />
+                        <div class="text text-danger" th:if="${#fields.hasErrors('stopTime')}" th:errors="*{stopTime}"></div>
+                    </div>-->
+                    <div class="form-group col-sm-4">
+                        <label for="Date" class="form-control-label"><h6>Start-Date:</h6></label>
+                        <input type="date" class="form-control" id="date" />
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="startTime" class="form-control-label"><h6>Beginns:</h6></label>
+                        <input type="time" class="form-control" id="startTime" />
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="stopTime" class="form-control-label"><h6>Ends:</h6></label> <input type="time" class="form-control" id="stopTime" />
+                    </div>
+                </div></hr><br>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <br>
+                        <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                    </div>
+                </div>
+            </form>
+            </hr><br>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>
+
+<th:block th:include="pageLayout/footer"></th:block>

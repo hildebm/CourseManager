@@ -1,0 +1,148 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:include="pageLayout/profileHeader"></th:block>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col">
+            <h3 style="margin-top: 40px; margin-bottom: 20px;">Time Table</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Topic</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Start</th>
+                    <th scope="col">End</th>
+                    <th scope="col">Instructor</th>
+                    <th scope="col">Description</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Beginners Tutorial</td>
+                    <td>Dortmund</td>
+                    <td>25.03.19</td>
+                    <td>12.15 pm</td>
+                    <td>14.15 pm</td>
+                    <td>FirstName LastName</td>
+                    <td>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</td>
+                    <td><button type="button" class="btn btn-primary">Edit</button></td>
+                    <td><button type="button" class="btn btn-danger">Delete</button></td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>First Website</td>
+                    <td>Dortmund</td>
+                    <td>25.03.19</td>
+                    <td>12.15 pm</td>
+                    <td>14.15 pm</td>
+                    <td>FirstName LastName</td>
+                    <td>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirma aliquyam erat, sed diam voluptua.</td>
+                    <td><button type="button" class="btn btn-primary">Edit</button></td>
+                    <td><button type="button" class="btn btn-danger">Delete</button></td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Additional Functions</td>
+                    <td>Dortmund</td>
+                    <td>25.03.19</td>
+                    <td>12.15 pm</td>
+                    <td>14.15 pm</td>
+                    <td>FirstName LastName</td>
+                    <td>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tem voluptua.</td>
+                    <td><button type="button" class="btn btn-primary">Edit</button></td>
+                    <td><button type="button" class="btn btn-danger">Delete</button></td>
+                </tr>
+                </tbody>
+            </table>
+            </hr><br>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <h4 style="margin-top: 20px; margin-bottom: 20px;">Create new Entry:</h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <form class="form" action="##" method="post" id="registrationForm">
+                <div class="form-row">
+                    <div class="form-group col-sm-3">
+                        <label for="number"><h6>Number:</h6></label>
+                        <input type="text" class="form-control" id="number" placeholder="6" readonly>
+                    </div>
+                    <div class="form-group col-sm-9">
+                        <label for="inputTopic"><h6>Topic:</h6></label>
+                        <input type="text" class="form-control" id="inputTopic" placeholder="Topic">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-sm-6">
+                        <label for="inputCity"><h6>Location:</h6></label>
+                        <input type="text" class="form-control" id="inputCity" placeholder="Location">
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="inputState"><h6>Instructor:</h6></label>
+                        <select id="inputState" class="form-control">
+                            <option selected>Choose...</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputText"><h6>Description:</h6></label>
+                    <textarea  class="form-control" id="exampleInputText" placeholder="..."></textarea>
+                </div>
+                <div class="form-row">
+                    <!--
+                    <div class="form-group col-sm-4">
+                        <label for="Date" class="form-control-label">Date</label>
+                        <input type="date" class="form-control" th:field="*{date}" id="date" />
+                        <div class="text text-danger" th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="startTime" class="form-control-label">StartTime</label>
+                        <input type="time" class="form-control" th:field="*{startTime}" id="startTime" />
+                        <div class="text text-danger" th:if="${#fields.hasErrors('startTime')}" th:errors="*{startTime}"></div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="stopTime" class="form-control-label">Stop Time</label> <input type="time" class="form-control" th:field="*{stopTime}" id="stopTime" />
+                        <div class="text text-danger" th:if="${#fields.hasErrors('stopTime')}" th:errors="*{stopTime}"></div>
+                    </div>-->
+                    <div class="form-group col-sm-4">
+                        <label for="Date" class="form-control-label"><h6>Start-Date:</h6></label>
+                        <input type="date" class="form-control" id="date" />
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="startTime" class="form-control-label"><h6>Beginns:</h6></label>
+                        <input type="time" class="form-control" id="startTime" />
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="stopTime" class="form-control-label"><h6>Ends:</h6></label> <input type="time" class="form-control" id="stopTime" />
+                    </div>
+                </div></hr><br>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <br>
+                        <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<th:block th:include="pageLayout/footer"></th:block>
