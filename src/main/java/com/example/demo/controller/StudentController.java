@@ -20,13 +20,6 @@ public class StudentController {
     @Autowired
     private CourseService courseService;
 
-    /*
-    @RequestMapping("/login")
-    public String login()
-    {
-        return "login";
-    }*/
-
     /* Index page for Students -> shows all DB entries from Table "students"*/
     @RequestMapping("/students")
     public String index(Model model)
